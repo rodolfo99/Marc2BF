@@ -141,6 +141,67 @@ El informe queda en `target/parity/report.json`. **La revisión inicial pasó 12
 
 ## Docker
 
+Docker permite compilar y ejecutar el conversor sin instalar Java ni Maven directamente en tu computadora. Necesitas Docker con Docker Compose instalado y en funcionamiento. Los siguientes comandos están preparados para la terminal de Ubuntu/Linux.
+
+### Uso con Docker Compose
+
+1. Descarga el proyecto y entra en su carpeta:
+
+   ```bash
+   git clone https://github.com/rodolfo99/Marc2BF.git
+   cd Marc2BF
+   ```
+
+   Si ya lo descargaste, entra en la carpeta donde están `Dockerfile` y `compose.yaml`.
+
+2. Construye la imagen:
+
+   ```bash
+   docker compose build
+   ```
+
+   Docker descarga las imágenes y dependencias necesarias, compila el conversor y ejecuta las pruebas Java. La primera construcción necesita Internet y puede tardar varios minutos.
+
+3. Convierte el archivo de ejemplo incluido:
+
+   ```bash
+   docker compose run --rm --user "$(id -u):$(id -g)" marc2bf
+   ```
+
+   El resultado queda en `salida/compose.rdf`, dentro de la carpeta del proyecto en tu computadora. También se generan los reportes y el respaldo del MARC original descritos en [Archivos producidos](#archivos-producidos).
+
+4. Para convertir tus fichas de SIABUC, coloca `fichas_siabuc.iso` dentro de la carpeta `Marc2BF` y ejecuta:
+
+   ```bash
+   docker compose run --rm --user "$(id -u):$(id -g)" marc2bf \
+     fichas_siabuc.iso \
+     salida/siabuc.rdf \
+     --repair \
+     --validate
+   ```
+
+   Usa `--repair` cuando el archivo necesite reparación, por ejemplo, por UTF-16 o un directorio incorrecto. Para un MARC válido puedes omitirlo. `--validate` comprueba que el RDF generado pueda volver a leerse.
+
+### Qué significan `id -u` e `id -g`
+
+**Son comandos de Ubuntu/Linux que obtienen los identificadores de tu usuario y de tu grupo.** No necesitas crear ningún archivo con esos nombres. Copia esta parte tal como está:
+
+```bash
+--user "$(id -u):$(id -g)"
+```
+
+La terminal sustituye `$(id -u)` y `$(id -g)` por sus valores numéricos. Docker ejecuta el conversor con esos identificadores para que los archivos generados pertenezcan a tu usuario.
+
+**Tu archivo MARC puede llamarse como quieras.** En el comando anterior, cambia `fichas_siabuc.iso` por el nombre real de tu archivo y `salida/siabuc.rdf` por la ruta de salida que prefieras. Si el nombre contiene espacios, escríbelo entre comillas, por ejemplo, `"mis fichas.iso"`.
+
+El archivo `compose.yaml` comparte la carpeta del proyecto con `/data` dentro del contenedor. Por eso las rutas de entrada y salida del ejemplo corresponden a archivos de tu computadora. La opción `--rm` elimina el contenedor al terminar; los resultados permanecen en la carpeta compartida.
+
+Para convertir otro archivo, repite el comando cambiando los nombres. **El conversor no sobrescribe resultados existentes:** utiliza una ruta de salida nueva en cada ejecución. Solo necesitas reconstruir la imagen si cambias el código o la configuración de construcción.
+
+### Uso directo con Docker
+
+También puedes construir y ejecutar la imagen sin Docker Compose, desde la carpeta del proyecto:
+
 ```bash
 docker build -t marc2bf .
 docker run --rm --network none \
@@ -149,7 +210,7 @@ docker run --rm --network none \
   marc2bf examples/catalogo-ejemplo.mrc salida/docker.rdf --validate
 ```
 
-También puedes ejecutar `docker compose run --rm marc2bf`. La imagen se construye desde el código y ejecuta las pruebas Java durante la construcción.
+La opción `-v "$PWD:/data"` comparte la carpeta actual con el contenedor. La conversión se ejecuta sin acceso a la red, tanto en este comando como con el `compose.yaml` incluido.
 
 ## Documentación
 
