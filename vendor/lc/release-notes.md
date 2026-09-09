@@ -1,0 +1,244 @@
+# marc2bibframe2 release notes
+
+## v3.1.0
+
+Conversion updates based on specifications v3.1. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Processing instructions for the conversion and creation of language and script coding which follows the BCP47 standard. The changes are outlined in the new Subfield $7 procedure and the new Process 10.
+* Conversion of $r in uniform title headings has been changed to bf:keyMode, which was missed in the v3.0 conversion.
+* Series Hub descriptions no longer have bflc:Uncontrolled as an added rdf:type.
+* Titles in Works now contain all title subfields from the MARC 245 field.
+* bf:duration value conforms to xsd:duration datatype (addresses https://github.com/lcnetdev/marc2bibframe2/issues/262) 
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v3.0.0 in the specifications are marked in red.
+
+
+## v3.0.0
+
+Conversion updates based on specifications v3.0. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Medium of Performance conversion from MARC fields 048 and 382 is now located in a new specification (ConvSpec-048,382). Properties and classes from the Performed Music Ontology have been added to the BIBFRAME ontology and are used in this new specification.
+* The ConvSpec-048-Codes specification is now obsolete.
+* Music identifiers in the MARC 383 field now use new classes (bf:SerialNumber, bf:OpusNumber, bf:ThematicIndexNumber) instead of literals.
+* Music key information from the MARC 384 field now uses a new object property bf:keyMode/bf:KeyMode
+* Identifier source data from MARC 024 $2 now includes a URI from the [Standard Identifiers vocabulary](https://id.loc.gov/vocabulary/identifiers.html).
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.10.0 in the specifications are marked in red.
+
+
+## v2.10.0
+
+Conversion updates based on specifications v2.10. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Added conversion of MARC 880 fields that are paired with 5XX fields
+* Changed conversion of MARC 300 $b; it is now a note within an extent resource
+* Changed conversion of MARC 510 (with first indicators=3 or 4) from a Work-to-Work relationship to an Instance note
+* Moved conversion of MARC 547 to a note within a former title resource, when possible
+* Moved conversion of MARC 580 to a note within a relationship resource, when possible
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.9.0 in the specifications are marked in red.
+
+
+## v2.9.0
+
+Conversion updates based on specifications v2.9. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Addition of URIs for variant title types found in MARC 246 and 247 fields
+* Changed the conversion of MARC 508, 511, 524 fields to use notes and notetype URIs instead of distinct BIBFRAME properties
+* Added notetype URIs to the conversion of MARC 525 and 556 fields
+* Changed conversion of MARC 506 and 540 $f to bf:qualifier
+* Changed conversion of MARC 506 and 540 $g to bf:validDate
+* Changed conversion of MARC 521 $b to bf:source
+* Added conversion of MARC 505 Ind2
+* Changed conversion of MARC 510 field to use indirect relationship model
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.8.0 in the specifications are marked in red.
+
+## v2.8.1
+
+Patch release.
+
+* [Address XPath test issue in xsltproc.](https://github.com/lcnetdev/marc2bibframe2/issues/253)
+
+## v2.8.0
+
+Conversion updates based on specifications v2.8. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Conversion of MARC 880 fields for agents, which were previously not converted.
+* Conversion of MARC 880 fields for variant titles (MARC 246, 247, 740), which were previously not converted.
+* Added conversion of UDC classification numbers in MARC 080 field.
+* Bibliographical notes in MARC 504 fields are now converted as notes instead of as supplementary content.
+* Adjusted the creation of relationships to use the vocabulary at https://id.loc.gov/vocabulary/relationship.html instead of BIBFRAME properties.
+* Retention of MARC 040 field as a note in Admin Metadata.
+* Refined conversion of MARC 7XX fields that have data in $i and Ind2=2 to selectively create resources with a “part” relationship.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.7.0 in the specifications are marked in red.
+
+
+## v2.7.0
+
+Conversion updates based on specifications v2.7. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* New conversion of relationships and related works to mirror the existing contribution-role modeling of agents.
+* New conversion of language resources in MARC 041 field to create language-specific notes or language-specific accompanying resources according to the information in each subfield.
+* Identifiers from OCLC in MARC 035 field are assigned to the new Identifier class bf:OclcNumber to facilitate data exchange activities.
+* Classification numbers from the National Agriculture Library in MARC 070 field are assigned to the new classification class bf:ClassificationNal
+* Title information from MARC 1XX fields is now converted.
+* Further refinements to the creation of Series Hubs from 490 fields.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.6.0 in the specifications are marked in red.
+
+
+## v2.6.0
+
+Conversion updates based on specifications v2.6. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* New conversion of $1 in authorized access points
+* Revised creation of Admin Metadata to create four distinct resources
+* More selective conversion of MARC 015 field to exclude placeholder numbers (e.g. "GB***") and numbers without source fields
+* Better handling of bf:acquisitionTerms literals from MARC 020/024 $c
+
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.5.0 in the specifications are marked in red.
+
+
+## v2.5.0
+
+Conversion updates based on specifications v2.5. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Move PrimaryContribution, Relief, and CaptureStorage from BFLC to BF namespace.
+* Added conversion support for 023, 046 $m and $n, and 647.
+* Regularize bf:electronicLocator shape throughout.
+* Better handling of 26X ind1 for serials and integrating resources.
+* Numerous bug fixes.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.4.0 in the specifications are marked in red.
+
+
+## v2.4.0
+
+Conversion updates based on specifications v2.4. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Placement of title non-filing indicator values in new bflc property "nonSortNum."
+* All bytes from the MARC 007 field are now mapped to the BIBFRAME Instance.
+* MARC 856 fields will create BIBFRAME Instances instead of BIBFRAME Items.
+* Splitting of a single MARC record with multiple 007, 300 and 856 fields into multiple records - one for each iteration of the resource – which creates multiple Instances linked to a Work. The split occurs as a preprocessing step documented in the new "Preprocess 0" spec. 
+* The Instances created via the splitting process are given the rdf:type "bflc:SecondaryInstance."
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.3.0 in the specifications are marked in red.
+
+
+## v2.3.0
+
+Conversion updates based on specifications v2.3. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Stop generating Item/shelfMark from 050.
+* 051s use same Classification pattern as 050s.
+* Refactor Item generation to be more targetted and group better.
+* 561, 563, and 581 to Instance unless $5, in which case continues to go to Item.
+* Incorporate new 'use by agency' statuses for Classification resources from 050, 055, 060, 070. 
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.2.0 in the specifications are marked in red.
+
+## v2.2.1
+
+Patch release.
+
+* Finesse how 1XX $t is excised when converting to 240.
+
+## v2.2.0
+
+Conversion updates based on specifications v2.2. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Removed *MatchKey properties.
+* Removed specific *MarcKey properties.
+* Introduced generic bflc:marcKey property.
+* Removed titleSortKey and replaed with nonSortNum property.
+* Refactored handling of FAST headings to convert identifiers to URIs.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v2.1.0 in the specifications are marked in red.
+
+## v2.1.0
+
+Conversion updates based on specifications v2.1. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* Model language notes as notes, not languages.
+* Add lang tag to literal properties for 242.
+* Amend 490 handling, making all Uncontrolled, remove Hub type.
+* Remove ending period from subjects from 65X fields.
+* Generate bflc:publicationStatement, bflc:productionStatement, etc.
+
+## v2.0.2
+
+Patch release to address https://github.com/lcnetdev/marc2bibframe2/issues/224 
+
+## v2.0.0
+
+Conversion updates based on specifications v2.0. See the Library of Congress’s [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in the distribution in the [spec](spec/) directory. Changes of note:
+
+* New Provision Activity conversion to separate encoded data in MARC 008 and transcribed data in MARC 26X. The 26X fields use new bflc properties bflc:simplePlace, bflc:simpleAgent and bflc:simpleDate to record literals. The 008 field uses existing bf:date and bf:place properties.
+
+* Series fields (4XX and 8XX) will create BF Hubs.
+
+* New Work types for Monograph, Serial, Series, Integrating, MusicAudio (subclass of Audio) and NonMusicAudio (subclass of Audio) created.
+
+* 006 no longer converted.
+
+* Added bflc:Uncontrolled for 720 conversion.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v1.7.1 in the specifications are marked in red.
+
+## v1.7.1
+
+Conversion updates based on specifications v1.7.1. See the Library of Congress' [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in this distribution in the [spec](spec/) directory. Changes of note:
+
+* Deduping between 007 and 008, and other MARC fields.
+
+* Convert MARC BibHubs to BF Hubs.
+
+* Frequency notes changed to status resources. Use Note URIs not labels.
+
+* Address issues #207 and #218.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v1.7 in the specifications are marked in red.
+
+ 
+## v1.7.0
+
+Conversion updates based on specifications v1.7. See the Library of Congress' [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in this distribution in the [spec](spec/) directory. Changes of note:
+
+* Uniform titles in 130, 240, 6XX, and 8XX fields now generate stub "Hub" records rather than creating properties on the described Work or Instance.
+
+* Major overhaul of punctuation handling, based on the [PCC Guidelines for Minimally Punctuated MARC Records](https://loc.gov/aba/pcc/documents/PCC-Guidelines-for-Minimally-Punctuated-MARC-Data-v.1.2.docx). See "Process 7" in the [Process0-7 doc](spec/ConvSpec-Process0-7-v1.7.docx).
+
+* MARC 880 fields that are paired with 245, 250, 26X, and 490 fields are processed along with the standard MARC field, generating additional properties on the specified object with an xml:lang designation.
+
+* Updates based on the BIBFRAME ontology v2.1.0.
+
+See the [NEWS](NEWS) file and the [updated specifications](spec/) for full details of changes. Changes from v1.6 in the specifications are marked in red.
+
+## v1.6.0
+
+Conversion updates based on specifications v1.6. See the Library of Congress' [BIBFRAME site](https://www.loc.gov/bibframe/) for more details. Specifications are included in this distribution in the [spec](spec/) directory. Changes of note:
+
+* Many duplicate properties generated by the LDR/fixed fields conversions, as well as data fields 336, 337, and 338, have been eliminated. In most cases only one of the applicable properties should be generated.
+
+* More URIs have been added to the 007 and 006/008 conversions, which should result in the generation of fewer blank nodes.
+
+* In many cases, an attempt is made to assign a URI to bf:Source and bf:assigner/bf:Agent nodes where appropriate.
+
+* URIs have been added to the bf:source properties generated by MARC subject fields reflecting the subject thesaurus in use.
+
+* There has been a major overhaul of processing for multiscript records (records with 880 fields). In particular:
+    * xml:lang attributes can now be generated from ISO-15294 codes in the $6 as well as MARC-8 codes.
+    * MARC 880 fields are now matched with their linked "regular" field using the occurrence number in the $6. This is done to allow either the vernacular or the Romanized field to be converted, based on the configuration in the [map880.xml](xsl/conf/map880.xml) configuration file. See the numeric subfields conversion specification for more details. The general strategy:
+        * Unlinked fields (with occurrence "00" or no matching occurrence number) are always converted.
+        * For identifier fields (010-099), the regular data field is preferred over the linked 880.
+        * For authority-controlled fields, the regular data field is preferred over the linked 880, as vernacular versions of the strings should be available from the authority record.
+        * For other fields, the 880 is preferred, with some exceptions.
+        * The 245 represents a special case: _both_ the 245 and the linked 880 are converted, and the properties generated by both fields are assigned to the same subjects.
+
+* Use of the `localfields` stylesheet parameter has expanded to accommodate more local processing specific to the Library of Congress. In particular:
+    * `localfields` controls handling of bf:Item generation from the 050, 051, and other fields.
+    * For fields with $5, `localfields` will only process fields if the value of $5 is "DLC".
+    * `localfields` limits the processing of 856 and 859 fields to only a few matching URL patterns.

@@ -1,0 +1,892 @@
+{
+  "lc_commit": "ed9abb038214474e8fc8ba4035d01c42fe0246de",
+  "fixtures": 63,
+  "cases": 126,
+  "passed": 126,
+  "reference": "saxon",
+  "candidate": "Saxon-HE 12.5 / LcEngine",
+  "results": [
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-001-007/dup-properties.xml",
+      "preprocess": false,
+      "expected_triples": 812,
+      "actual_triples": 812,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-001-007/dup-properties.xml",
+      "preprocess": true,
+      "expected_triples": 812,
+      "actual_triples": 812,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-001-007/marc.xml",
+      "preprocess": false,
+      "expected_triples": 624,
+      "actual_triples": 624,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-001-007/marc.xml",
+      "preprocess": true,
+      "expected_triples": 615,
+      "actual_triples": 615,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-006,008/marc.xml",
+      "preprocess": false,
+      "expected_triples": 924,
+      "actual_triples": 924,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-006,008/marc.xml",
+      "preprocess": true,
+      "expected_triples": 924,
+      "actual_triples": 924,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-010-048/marc.xml",
+      "preprocess": false,
+      "expected_triples": 545,
+      "actual_triples": 545,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-010-048/marc.xml",
+      "preprocess": true,
+      "expected_triples": 545,
+      "actual_triples": 545,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-050-088/marc.xml",
+      "preprocess": false,
+      "expected_triples": 217,
+      "actual_triples": 217,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-050-088/marc.xml",
+      "preprocess": true,
+      "expected_triples": 217,
+      "actual_triples": 217,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-1XX,6XX,7XX,8XX-names/marc.xml",
+      "preprocess": false,
+      "expected_triples": 345,
+      "actual_triples": 345,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-1XX,6XX,7XX,8XX-names/marc.xml",
+      "preprocess": true,
+      "expected_triples": 345,
+      "actual_triples": 345,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-1XX,6XX,7XX,8XX-names/marc_contains.xml",
+      "preprocess": false,
+      "expected_triples": 85,
+      "actual_triples": 85,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-1XX,6XX,7XX,8XX-names/marc_contains.xml",
+      "preprocess": true,
+      "expected_triples": 85,
+      "actual_triples": 85,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-1XX,6XX,7XX,8XX-names/marc_uris.xml",
+      "preprocess": false,
+      "expected_triples": 153,
+      "actual_triples": 153,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-1XX,6XX,7XX,8XX-names/marc_uris.xml",
+      "preprocess": true,
+      "expected_triples": 153,
+      "actual_triples": 153,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc210.xml",
+      "preprocess": false,
+      "expected_triples": 77,
+      "actual_triples": 77,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc210.xml",
+      "preprocess": true,
+      "expected_triples": 77,
+      "actual_triples": 77,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc222.xml",
+      "preprocess": false,
+      "expected_triples": 38,
+      "actual_triples": 38,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc222.xml",
+      "preprocess": true,
+      "expected_triples": 38,
+      "actual_triples": 38,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc242.xml",
+      "preprocess": false,
+      "expected_triples": 71,
+      "actual_triples": 71,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc242.xml",
+      "preprocess": true,
+      "expected_triples": 71,
+      "actual_triples": 71,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc243.xml",
+      "preprocess": false,
+      "expected_triples": 33,
+      "actual_triples": 33,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc243.xml",
+      "preprocess": true,
+      "expected_triples": 33,
+      "actual_triples": 33,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc245.xml",
+      "preprocess": false,
+      "expected_triples": 257,
+      "actual_triples": 257,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc245.xml",
+      "preprocess": true,
+      "expected_triples": 257,
+      "actual_triples": 257,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc246.xml",
+      "preprocess": false,
+      "expected_triples": 181,
+      "actual_triples": 181,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc246.xml",
+      "preprocess": true,
+      "expected_triples": 181,
+      "actual_triples": 181,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc247.xml",
+      "preprocess": false,
+      "expected_triples": 136,
+      "actual_triples": 136,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-200-247not240-Titles/marc247.xml",
+      "preprocess": true,
+      "expected_triples": 136,
+      "actual_triples": 136,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-240andX30-UnifTitle/marc.xml",
+      "preprocess": false,
+      "expected_triples": 430,
+      "actual_triples": 430,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-240andX30-UnifTitle/marc.xml",
+      "preprocess": true,
+      "expected_triples": 430,
+      "actual_triples": 430,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-250-270/marc-process8.xml",
+      "preprocess": false,
+      "expected_triples": 480,
+      "actual_triples": 480,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-250-270/marc-process8.xml",
+      "preprocess": true,
+      "expected_triples": 474,
+      "actual_triples": 474,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-250-270/marc.xml",
+      "preprocess": false,
+      "expected_triples": 226,
+      "actual_triples": 226,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-250-270/marc.xml",
+      "preprocess": true,
+      "expected_triples": 226,
+      "actual_triples": 226,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-3XX/marc-multi-3XX.xml",
+      "preprocess": false,
+      "expected_triples": 62,
+      "actual_triples": 62,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-3XX/marc-multi-3XX.xml",
+      "preprocess": true,
+      "expected_triples": 62,
+      "actual_triples": 62,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-3XX/marc.xml",
+      "preprocess": false,
+      "expected_triples": 601,
+      "actual_triples": 601,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-3XX/marc.xml",
+      "preprocess": true,
+      "expected_triples": 611,
+      "actual_triples": 611,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-3XX/marc362-edge.xml",
+      "preprocess": false,
+      "expected_triples": 95,
+      "actual_triples": 95,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-3XX/marc362-edge.xml",
+      "preprocess": true,
+      "expected_triples": 95,
+      "actual_triples": 95,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-460-468-SeriesTreat/marc.xml",
+      "preprocess": false,
+      "expected_triples": 29,
+      "actual_triples": 29,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-460-468-SeriesTreat/marc.xml",
+      "preprocess": true,
+      "expected_triples": 29,
+      "actual_triples": 29,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-490-510-Links/marc.xml",
+      "preprocess": false,
+      "expected_triples": 51,
+      "actual_triples": 51,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-490-510-Links/marc.xml",
+      "preprocess": true,
+      "expected_triples": 51,
+      "actual_triples": 51,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-5XX/marc-paired880s.xml",
+      "preprocess": false,
+      "expected_triples": 129,
+      "actual_triples": 129,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-5XX/marc-paired880s.xml",
+      "preprocess": true,
+      "expected_triples": 129,
+      "actual_triples": 129,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-5XX/marc.xml",
+      "preprocess": false,
+      "expected_triples": 449,
+      "actual_triples": 449,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-5XX/marc.xml",
+      "preprocess": true,
+      "expected_triples": 449,
+      "actual_triples": 449,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-648-662/marc.xml",
+      "preprocess": false,
+      "expected_triples": 283,
+      "actual_triples": 283,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-648-662/marc.xml",
+      "preprocess": true,
+      "expected_triples": 283,
+      "actual_triples": 283,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-648-662/marc_uris.xml",
+      "preprocess": false,
+      "expected_triples": 87,
+      "actual_triples": 87,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-648-662/marc_uris.xml",
+      "preprocess": true,
+      "expected_triples": 87,
+      "actual_triples": 87,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-720+740to755/marc.xml",
+      "preprocess": false,
+      "expected_triples": 114,
+      "actual_triples": 114,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-720+740to755/marc.xml",
+      "preprocess": true,
+      "expected_triples": 114,
+      "actual_triples": 114,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-760-788-Links/marc.xml",
+      "preprocess": false,
+      "expected_triples": 768,
+      "actual_triples": 768,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-760-788-Links/marc.xml",
+      "preprocess": true,
+      "expected_triples": 768,
+      "actual_triples": 768,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-760-788-Links/marc_758_uris.xml",
+      "preprocess": false,
+      "expected_triples": 43,
+      "actual_triples": 43,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-760-788-Links/marc_758_uris.xml",
+      "preprocess": true,
+      "expected_triples": 43,
+      "actual_triples": 43,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-841-887/marc.xml",
+      "preprocess": false,
+      "expected_triples": 149,
+      "actual_triples": 149,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-841-887/marc.xml",
+      "preprocess": true,
+      "expected_triples": 174,
+      "actual_triples": 174,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/100-600-600complex-700.xml",
+      "preprocess": false,
+      "expected_triples": 408,
+      "actual_triples": 408,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/100-600-600complex-700.xml",
+      "preprocess": true,
+      "expected_triples": 408,
+      "actual_triples": 408,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/100-600-700-700t.xml",
+      "preprocess": false,
+      "expected_triples": 317,
+      "actual_triples": 317,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/100-600-700-700t.xml",
+      "preprocess": true,
+      "expected_triples": 317,
+      "actual_triples": 317,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/110-610complex-710-710t-02.xml",
+      "preprocess": false,
+      "expected_triples": 256,
+      "actual_triples": 256,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/110-610complex-710-710t-02.xml",
+      "preprocess": true,
+      "expected_triples": 256,
+      "actual_triples": 256,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/110-610complex-710-710t.xml",
+      "preprocess": false,
+      "expected_triples": 177,
+      "actual_triples": 177,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/110-610complex-710-710t.xml",
+      "preprocess": true,
+      "expected_triples": 177,
+      "actual_triples": 177,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/111-611compex-711-02.xml",
+      "preprocess": false,
+      "expected_triples": 261,
+      "actual_triples": 261,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/111-611compex-711-02.xml",
+      "preprocess": true,
+      "expected_triples": 261,
+      "actual_triples": 261,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/111-611compex-711.xml",
+      "preprocess": false,
+      "expected_triples": 214,
+      "actual_triples": 214,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/111-611compex-711.xml",
+      "preprocess": true,
+      "expected_triples": 214,
+      "actual_triples": 214,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/648a-655a.xml",
+      "preprocess": false,
+      "expected_triples": 385,
+      "actual_triples": 385,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/648a-655a.xml",
+      "preprocess": true,
+      "expected_triples": 385,
+      "actual_triples": 385,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/650a-651a.xml",
+      "preprocess": false,
+      "expected_triples": 274,
+      "actual_triples": 274,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/650a-651a.xml",
+      "preprocess": true,
+      "expected_triples": 274,
+      "actual_triples": 274,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/650complex-651-651complex.xml",
+      "preprocess": false,
+      "expected_triples": 325,
+      "actual_triples": 325,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/650complex-651-651complex.xml",
+      "preprocess": true,
+      "expected_triples": 325,
+      "actual_triples": 325,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/650complex-651complex-830.xml",
+      "preprocess": false,
+      "expected_triples": 332,
+      "actual_triples": 332,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/650complex-651complex-830.xml",
+      "preprocess": true,
+      "expected_triples": 332,
+      "actual_triples": 332,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/marc-lang.xml",
+      "preprocess": false,
+      "expected_triples": 47,
+      "actual_triples": 47,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/marc-lang.xml",
+      "preprocess": true,
+      "expected_triples": 47,
+      "actual_triples": 47,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/marc-subfield6-processing.xml",
+      "preprocess": false,
+      "expected_triples": 133,
+      "actual_triples": 133,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/marc-subfield6-processing.xml",
+      "preprocess": true,
+      "expected_triples": 133,
+      "actual_triples": 133,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/marc.xml",
+      "preprocess": false,
+      "expected_triples": 287,
+      "actual_triples": 287,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-880/marc.xml",
+      "preprocess": true,
+      "expected_triples": 287,
+      "actual_triples": 287,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-DLC/marc.xml",
+      "preprocess": false,
+      "expected_triples": 142,
+      "actual_triples": 142,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-DLC/marc.xml",
+      "preprocess": true,
+      "expected_triples": 142,
+      "actual_triples": 142,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-LDR/marc.xml",
+      "preprocess": false,
+      "expected_triples": 157,
+      "actual_triples": 157,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-LDR/marc.xml",
+      "preprocess": true,
+      "expected_triples": 157,
+      "actual_triples": 157,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/seven007s-oneC-one856-six300s.marc.xml",
+      "preprocess": false,
+      "expected_triples": 483,
+      "actual_triples": 483,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/seven007s-oneC-one856-six300s.marc.xml",
+      "preprocess": true,
+      "expected_triples": 544,
+      "actual_triples": 544,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/three007s-notCs-matching300s.marc.xml",
+      "preprocess": false,
+      "expected_triples": 312,
+      "actual_triples": 312,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/three007s-notCs-matching300s.marc.xml",
+      "preprocess": true,
+      "expected_triples": 335,
+      "actual_triples": 335,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/three856s-none_matching_criteria-no007s-one300.marc.xml",
+      "preprocess": false,
+      "expected_triples": 204,
+      "actual_triples": 204,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/three856s-none_matching_criteria-no007s-one300.marc.xml",
+      "preprocess": true,
+      "expected_triples": 204,
+      "actual_triples": 204,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-notCs-three300s-manyDollar3s.marc.xml",
+      "preprocess": false,
+      "expected_triples": 405,
+      "actual_triples": 405,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-notCs-three300s-manyDollar3s.marc.xml",
+      "preprocess": true,
+      "expected_triples": 418,
+      "actual_triples": 418,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-notCs.marc.xml",
+      "preprocess": false,
+      "expected_triples": 185,
+      "actual_triples": 185,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-notCs.marc.xml",
+      "preprocess": true,
+      "expected_triples": 199,
+      "actual_triples": 199,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-oneAoneC-butno856.marc.xml",
+      "preprocess": false,
+      "expected_triples": 175,
+      "actual_triples": 175,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-oneAoneC-butno856.marc.xml",
+      "preprocess": true,
+      "expected_triples": 175,
+      "actual_triples": 175,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-oneAoneC-one856.marc.xml",
+      "preprocess": false,
+      "expected_triples": 397,
+      "actual_triples": 397,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Preprocess0-Splitting/two007s-oneAoneC-one856.marc.xml",
+      "preprocess": true,
+      "expected_triples": 404,
+      "actual_triples": 404,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Process6-Series/marc.xml",
+      "preprocess": false,
+      "expected_triples": 302,
+      "actual_triples": 302,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/ConvSpec-Process6-Series/marc.xml",
+      "preprocess": true,
+      "expected_triples": 302,
+      "actual_triples": 302,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/collection.xml",
+      "preprocess": false,
+      "expected_triples": 506,
+      "actual_triples": 506,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/collection.xml",
+      "preprocess": true,
+      "expected_triples": 524,
+      "actual_triples": 524,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/contributed/202799094.xml",
+      "preprocess": false,
+      "expected_triples": 223,
+      "actual_triples": 223,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/contributed/202799094.xml",
+      "preprocess": true,
+      "expected_triples": 223,
+      "actual_triples": 223,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/contributed/202995748.xml",
+      "preprocess": false,
+      "expected_triples": 245,
+      "actual_triples": 245,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/contributed/202995748.xml",
+      "preprocess": true,
+      "expected_triples": 245,
+      "actual_triples": 245,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/contributed/202998709.xml",
+      "preprocess": false,
+      "expected_triples": 299,
+      "actual_triples": 299,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/contributed/202998709.xml",
+      "preprocess": true,
+      "expected_triples": 299,
+      "actual_triples": 299,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/entities/marc_unif.xml",
+      "preprocess": false,
+      "expected_triples": 154,
+      "actual_triples": 154,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/entities/marc_unif.xml",
+      "preprocess": true,
+      "expected_triples": 154,
+      "actual_triples": 154,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/marc.xml",
+      "preprocess": false,
+      "expected_triples": 120,
+      "actual_triples": 120,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/marc.xml",
+      "preprocess": true,
+      "expected_triples": 120,
+      "actual_triples": 120,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/marc_bcp47.xml",
+      "preprocess": false,
+      "expected_triples": 344,
+      "actual_triples": 344,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/marc_bcp47.xml",
+      "preprocess": true,
+      "expected_triples": 344,
+      "actual_triples": 344,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/marc_url_encode.xml",
+      "preprocess": false,
+      "expected_triples": 120,
+      "actual_triples": 120,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/marc_url_encode.xml",
+      "preprocess": true,
+      "expected_triples": 120,
+      "actual_triples": 120,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/mtahub.xml",
+      "preprocess": false,
+      "expected_triples": 64,
+      "actual_triples": 64,
+      "isomorphic": true
+    },
+    {
+      "fixture": "vendor/lc/test/data/mtahub.xml",
+      "preprocess": true,
+      "expected_triples": 64,
+      "actual_triples": 64,
+      "isomorphic": true
+    }
+  ]
+}

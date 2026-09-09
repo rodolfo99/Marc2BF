@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+               xmlns:marc="http://www.loc.gov/MARC21/slim"
+               xmlns:bf="http://id.loc.gov/ontologies/bibframe/"
+               xmlns:bflc="http://id.loc.gov/ontologies/bflc/"
+               xmlns:madsrdf="http://www.loc.gov/mads/rdf/v1#"
+               stylesheet="../xsl/marc2bibframe2.xsl"
+               xslt-version="1.0">
+
+  <x:scenario label="Process 1 - names">
+    <x:context href="data/ConvSpec-1XX,6XX,7XX,8XX-names/marc.xml"/>
+    <!-- tests for 6XX name/title fields located in ConvSpec-600-662.xspec -->
+    <!-- tests for 8XX name/title fields located in ConvSpec-Process6-Series.xspec -->
+    <x:expect label="1XX creates a bf:PrimaryContribution" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/rdf:type/@rdf:resource = 'http://id.loc.gov/ontologies/bibframe/PrimaryContribution'"/>
+    <x:expect label="Name field with $e, $j, or $4 becomes a bf:Contribution" test="//bf:Work[1]/bf:contribution[2]/bf:Contribution/bf:agent/bf:Agent/rdfs:label = 'Hecht, Ben, 1893-1964'"/>
+    <x:expect label="...$e/$j become bf:role properties with blank bf:Role node" test="count(//bf:Work[1]/bf:contribution[2]/bf:Contribution/bf:role) = 5"/>
+    <x:expect label="...$4 becomes bf:role/bf:Role property with URI" test="//bf:Work[1]/bf:contribution[3]/bf:Contribution/bf:role[1]/bf:Role/@rdf:about = 'http://id.loc.gov/vocabulary/relators/prf'"/>
+    <x:expect label="...$4 with URI becomes URI of Role" test="//bf:Work[1]/bf:contribution[3]/bf:Contribution/bf:role[3]/bf:Role/@rdf:about = 'http://id.loc.gov/vocabulary/relators/adi'"/>
+    <x:expect label="...otherwise role of  bf:Contribution is ctb" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:role/bf:Role/@rdf:about = 'http://id.loc.gov/vocabulary/relators/ctb'"/>
+    <x:expect label="7XX with $t creates a bf:relatedTo" test="//bf:Work[1]/bf:relation[1]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Alice''s adventures in Wonderland'"/>
+    <x:expect label="7XX with $t creates a bf:relatedTo relationship" test="//bf:Work[1]/bf:relation[1]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/relatedwork'"/>
+    <x:expect label="...unless ind2=2, in which case it's a bf:hasPart" test="//bf:Work[1]/bf:relation[2]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/part'"/>
+    <x:expect label="...or ind2=4, in which case it's a hasVariantEntry" test="//bf:Work[1]/bf:relation[3]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/ontologies/bflc/hasVariantEntry'"/>
+    <x:expect label="Name field with $t creates a bf:Title" test="count(//bf:Work[1]//bf:title) = 6"/>
+    <x:expect label="720 field without $t creates a bf:Contribution" test="//bf:Work[2]//bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/rdfs:label = 'Vestris, Le citoyen'"/>
+    <x:expect label="720 field without $t creates a bflc:Uncontrolled agent type" test="//bf:Work[2]//bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/rdf:type/@rdf:resource = 'http://id.loc.gov/ontologies/bflc/Uncontrolled'"/>
+    <x:expect label="bf:Agent/bflc:nameMarcKey generation" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/bflc:marcKey = '1001 $aBeethoven, Ludwig van,$d1770-1827$c(Spirit)$0(DE-101c)310008891$2naf'"/>
+    <x:expect label="bf:Agent/rdfs:label generation" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/rdfs:label = 'Beethoven, Ludwig van, 1770-1827 (Spirit)'"/>
+    <x:expect label="$0 becomes a bf:identifiedBy property for the bf:Agent" test="//bf:Agent[@rdf:about='http://example.org/1#Agent100-2']/bf:identifiedBy/bf:Identifier/rdf:value = '310008891'"/>
+    <x:expect label="$2 becomes a bf:source property for the bf:Agent" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/bf:source/bf:Source/bf:code = 'naf'"/>
+    <x:expect label="...with URI from nameTitleSchemes" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/bf:source/bf:Source/@rdf:about = 'http://id.loc.gov/vocabulary/nameTitleSchemes/naf'"/>
+    <x:expect label="...unless there is a $t, in which case it's the bf:identifiedBy for the bf:Hub" test="//bf:Hub[@rdf:about='http://example.org/1#Hub700-6']/bf:identifiedBy/bf:Identifier/rdf:value = '0000000121358464'"/>
+    <x:expect label="...or if it is a URI, it becomes the rdf:about attribute of the bf:Agent or bf:Work" test="//bf:Work[1]/bf:contribution[3]/bf:Contribution/bf:agent/bf:Agent/@rdf:about = 'http://id.loc.gov/rwo/agents/n81042545'"/>
+  </x:scenario>
+  
+  <x:scenario label="Names - $0 and $1 handling">
+    <x:context href="data/ConvSpec-1XX,6XX,7XX,8XX-names/marc_uris.xml"/>
+    <!-- tests for 6XX name/title fields located in ConvSpec-600-662.xspec -->
+    <!-- tests for 8XX name/title fields located in ConvSpec-Process6-Series.xspec -->
+    <x:expect label="1XX creates a bf:PrimaryContribution" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/rdf:type/@rdf:resource = 'http://id.loc.gov/ontologies/bibframe/PrimaryContribution'"/>
+    
+    <x:expect label="$1 becomes Agent URI" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='http://viaf.org/viaf/27297150/'"/>
+    <x:expect label="...$0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:contribution[1]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority/@rdf:resource='http://example.org/names/n83170323'"/>
+    
+    <x:expect label="$1 becomes Agent URI" test="//bf:Work[1]/bf:contribution[2]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='https://isni.org/isni/000000049947861X'"/>
+    <x:expect label="No $0 so no isIdentifiedByAuthority" test="count(//bf:Work[1]/bf:contribution[2]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority)=0"/>
+    
+    <x:expect label="$0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:contribution[3]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority/@rdf:resource='http://id.loc.gov/authorities/names/nb2019016901'"/>
+    <x:expect label="...And creates $1 from ID Authorities URI" test="//bf:Work[1]/bf:contribution[3]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='http://id.loc.gov/rwo/agents/nb2019016901'"/>
+    
+    <x:expect label="$1 becomes Agent URI" test="//bf:Work[1]/bf:contribution[4]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='http://viaf.org/viaf/3320154501860139210007/'"/>
+    <x:expect label="No $0 so no isIdentifiedByAuthority" test="count(//bf:Work[1]/bf:contribution[4]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority)=0"/>
+    
+    <x:expect label="$1 becomes Agent URI" test="//bf:Work[1]/bf:contribution[5]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='https://id.oclc.org/worldcat/entity/E39PBJqFMYqM9phrM7kFK8hJXd'"/>
+    <x:expect label="No $0 so no isIdentifiedByAuthority" test="count(//bf:Work[1]/bf:contribution[5]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority)=0"/>
+    
+    <x:expect label="$1 becomes Agent URI" test="//bf:Work[1]/bf:contribution[6]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='https://id.oclc.org/worldcat/entity/E39PBJxt44CR7PvwWxx3RP7PwC'"/>
+    <x:expect label="...$0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:contribution[6]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority/@rdf:resource='http://example.org/names/n92801300'"/>
+    
+    <x:expect label="$0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:contribution[7]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority/@rdf:resource='http://id.loc.gov/authorities/names/n83158481'"/>
+    <x:expect label="...And creates $1 from ID Authorities URI" test="//bf:Work[1]/bf:contribution[7]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='http://id.loc.gov/rwo/agents/n83158481'"/>
+    
+    <x:expect label="$1 becomes Agent URI" test="//bf:Work[1]/bf:contribution[8]/bf:Contribution/bf:agent/bf:Agent/@rdf:about='http://id.loc.gov/rwo/agents/n83170323'"/>
+    <x:expect label="...$0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:contribution[8]/bf:Contribution/bf:agent/bf:Agent/madsrdf:isIdentifiedByAuthority/@rdf:resource='http://id.loc.gov/authorities/names/n83170323'"/>
+    
+    <x:expect label="Subject $0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:subject[1]/bf:Agent/madsrdf:isIdentifiedByAuthority/madsrdf:PersonalName/@rdf:about='http://id.loc.gov/authorities/names/n79027239'"/>
+    <x:expect label="...And creates $1 from ID Authorities URI" test="//bf:Work[1]/bf:subject[1]/bf:Agent/@rdf:about='http://id.loc.gov/rwo/agents/n79027239'"/>
+    
+    <x:expect label="Subject $1 becomes rdf:about" test="//bf:Work[1]/bf:subject[2]/bf:Agent/@rdf:about='http://id.loc.gov/rwo/agents/n79022244'"/>
+    <x:expect label="...And creates $0 from ID RWO URI" test="//bf:Work[1]/bf:subject[2]/bf:Agent/madsrdf:isIdentifiedByAuthority/madsrdf:PersonalName/@rdf:about='http://id.loc.gov/authorities/names/n79022244'"/>
+
+    <x:expect label="Subject $1 becomes Agent URI" test="//bf:Work[1]/bf:subject[3]/bf:Agent/@rdf:about='https://viaf.org/viaf/76349832/'"/>
+    <x:expect label="No $0 so no isIdentifiedByAuthority" test="count(//bf:Work[1]/bf:subject[3]/bf:Agent/madsrdf:isIdentifiedByAuthority)=0"/>
+    
+    <x:expect label="Subject $1 becomes Agent URI" test="//bf:Work[1]/bf:subject[4]/bf:Agent/@rdf:about='http://viaf.org/viaf/92989169'"/>
+    <x:expect label="...$0 becomes isIdentifiedByAuthority" test="//bf:Work[1]/bf:subject[4]/bf:Agent/madsrdf:isIdentifiedByAuthority/madsrdf:PersonalName/@rdf:about='http://example.org/names/n80005801'"/>
+    
+  </x:scenario>
+
+  <x:scenario label="Process 1 - hub relationships">
+    <x:context href="data/ConvSpec-1XX,6XX,7XX,8XX-names/marc.xml"/>
+    <x:expect label="700 with $i='is translation of' converts to bf:translationOf relationship and links to Hub." test="//bf:Work/bf:relation[4]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Avventure di Pinocchio'"/>
+    <x:expect label="700 with $i='is translation of' converts to bf:translationOf relationship." test="//bf:Work/bf:relation[4]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/translationof'"/>
+    <x:expect label="700 with $i='is arrangement of' converts to bf:arrangementOf relationship and links to Hub." test="//bf:Work/bf:relation[5]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Cottage by the sea'"/>
+    <x:expect label="700 with $i='is arrangement of' converts to bf:arrangementOf relationship." test="//bf:Work/bf:relation[5]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/arrangementof'"/>
+  </x:scenario>
+  
+  <x:scenario label="Relationship handling">
+    <x:context href="data/ConvSpec-1XX,6XX,7XX,8XX-names/marc_contains.xml"/>
+    <x:expect label="$i with 'Contains' converted to 'part'" test="//bf:Work/bf:relation[1]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/part'"/>
+    <x:expect label="ind2=2 converted to 'part'" test="//bf:Work/bf:relation[2]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/part'"/>
+    <x:expect label="$i retained when not 'contain'" test="//bf:Work/bf:relation[2]/bf:Relation/bf:relationship/bf:Relationship/rdfs:label='Libretto for (work)'"/>
+    <x:expect label="ind2=' ' converted to relatedwork" test="//bf:Work/bf:relation[3]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/relatedwork'"/>
+    <x:expect label="$i retained when not 'contain'" test="//bf:Work/bf:relation[3]/bf:Relation/bf:relationship/bf:Relationship/rdfs:label='Based on (expression)'"/>
+  </x:scenario>
+
+</x:description>

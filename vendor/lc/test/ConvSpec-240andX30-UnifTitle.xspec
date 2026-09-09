@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+               xmlns:marc="http://www.loc.gov/MARC21/slim"
+               xmlns:bf="http://id.loc.gov/ontologies/bibframe/"
+               xmlns:bflc="http://id.loc.gov/ontologies/bflc/"
+               xmlns:madsrdf="http://www.loc.gov/mads/rdf/v1#"
+               stylesheet="../xsl/marc2bibframe2.xsl" xslt-version="1.0">
+
+  <x:scenario label="Uniform title bf:Title creation">
+    <x:context href="data/ConvSpec-240andX30-UnifTitle/marc.xml"/>
+    <x:expect label="title marc key generation" test="//bf:Work[1]/bf:expressionOf/bf:Hub/bflc:marcKey = '1304 $aThe Encyclopedia of Latin American history and culture.$d(1952).$f[between 1775 and 1800].$gManuscripts, Latin.$hSound recording.$mviolin, viola,$rD major.$oarr.$pO.T.$nBook 4.$kSelections.$0(ID)0001'"/>
+    <x:expect label="title sort string generation" test="//bf:Work[1]/bf:expressionOf/bf:Hub/bf:title/bf:Title/bflc:nonSortNum = '4'"/>
+    <x:expect label="All title subfields except $h, $0-8 become mainTitle" test="//bf:Work[1]/bf:expressionOf/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'The Encyclopedia of Latin American history and culture. (1952). [between 1775 and 1800]. Manuscripts, Latin. Sound recording. violin, viola, D major. arr. O.T. Book 4. Selections'"/>
+    <x:expect label="$n becomes a partNumber" test="//bf:Work[1]/bf:expressionOf/bf:Hub/bf:title/bf:Title/bf:partNumber[1] = 'Book 4'"/>
+    <x:expect label="$p becomes a partName" test="//bf:Work[1]/bf:expressionOf/bf:Hub/bf:title/bf:Title/bf:partName[1] = 'O.T.'"/>
+  </x:scenario>
+
+  <x:scenario label="Work properties from uniform titles">
+    <x:context href="data/ConvSpec-240andX30-UnifTitle/marc.xml"/>
+    <!-- tests for 630 located in ConvSpec-600-662.xspec -->
+    <!-- tests for 830 located in ConvSpec-Process6-Series.xspec -->
+    <x:expect label="1XX $t becomes the title of the Hub" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:expressionOf/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Selections. 1987.'"/>
+    <x:expect label="6XX/7XX/8XX $t creates new Hub entity" test="count(//bf:Hub[@rdf:about='http://example.org/1#Hub700-5']) = 1"/>
+    <x:expect label="630/730/830 creates new Hub entity" test="count(//bf:Hub[@rdf:about='http://example.org/2#Hub730-4']) = 1"/>
+    <x:expect label="730 I2=2 with no $i becomes a hasPart of the main Work" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[1]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/part'"/>
+    <x:expect label="730 I2=2 with no $i becomes a hasPart of the main Work" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[1]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Bible. O.T. Psalms. Codex Sinaiticus'"/>
+    <x:expect label="730 ind2=4 becomes bflc:hasVariantEntry" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[3]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/ontologies/bflc/hasVariantEntry'"/>
+    <x:expect label="730 ind2=4 becomes bflc:hasVariantEntry" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[3]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Apocrypha'"/>
+    <x:expect label="730 otherwise becomes a relatedTo of the main Work" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[2]/bf:Relation/bf:relationship[1]/@rdf:resource='http://id.loc.gov/vocabulary/relationship/relatedwork'"/>
+    <x:expect label="730 otherwise becomes a relatedTo of the main Work" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[2]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = '[Motets]. E minor Sound recording'"/>
+    <x:expect label="$i becomes a bflc:relationship of the main Work" test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[2]/bf:Relation/bf:relationship[2]/bf:Relationship/rdfs:label='Parody of (work)'"/>
+    <x:expect label="$d becomes a legalDate of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:expressionOf/bf:Hub/bf:legalDate = '1952'"/>
+    <x:expect label="$f becomes the originDate of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:expressionOf/bf:Hub/bf:originDate = '[between 1775 and 1800]'"/>
+    <x:expect label="$l creates a language property of the Hub" test="//bf:Work[@rdf:about='http://example.org/4#Work']/bf:expressionOf/bf:Hub/bf:language/bf:Language/rdfs:label = 'English'"/>
+    <x:expect label="...for 240, add contribution from 1XX to Hub" test="//bf:Work[@rdf:about='http://example.org/5#Work']/bf:expressionOf/bf:Hub/bf:contribution/bf:Contribution/bf:agent/bf:Agent/rdfs:label='Ferrante, Elena'"/>
+    <x:expect label="...with URI that matches Hub" test="//bf:Work[@rdf:about='http://example.org/5#Work']/bf:expressionOf/bf:Hub/bf:contribution/bf:Contribution/bf:agent/bf:Agent/@rdf:about='http://example.org/5#Hub240-5-Agent'"/>
+    <x:expect label="$m becomes a musicMedium of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:expressionOf/bf:Hub/bf:musicMedium/bf:MusicMedium/rdfs:label = 'violin, viola'"/>
+    <x:expect label="$o creates an rdf:type property of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:expressionOf/bf:Hub/rdf:type/@rdf:resource = 'http://id.loc.gov/ontologies/bibframe/Arrangement'"/>
+    <x:expect label="$r becomes a musicKey of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:expressionOf/bf:Hub/bf:keyMode/bf:KeyMode/rdfs:label = 'D major'"/>
+    <x:expect label="$s becomes a version of the Hub" test="//bf:Hub[@rdf:about='http://example.org/2#Hub730-4']/bf:version = 'Codex Sinaiticus'"/>
+    <x:expect label="$x becomes an Issn of the Hub" test="//bf:Hub[@rdf:about='http://example.org/2#Hub730-6']/bf:identifiedBy/bf:Issn/rdf:value = '1234-5678'"/>
+    <x:expect label="$2 becomes a source of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:subject[1]/bf:Topic/madsrdf:componentList/bf:Hub/bf:source/bf:Source/bf:code='example'"/>
+    <x:expect label="$0 becomes an identifiedBy of the Hub" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:expressionOf/bf:Hub/bf:identifiedBy[1]/bf:Identifier/rdf:value = '0001'"/>
+    <x:expect label="$0/$w, if a URI, becomes the rdf:about attribute of the bf:Hub for 630, 730, 830" test="//bf:Work[@rdf:about='http://example.org/1#Work']/bf:subject[1]/bf:Topic/madsrdf:componentList/bf:Hub/@rdf:about = 'http://example.org/9999#Work'"/>
+    <x:expect label="$3 becomes a bflc:appliesTo of the Hub" test="//bf:Hub[@rdf:about='http://example.org/2#Hub730-4']/bflc:appliesTo/bflc:AppliesTo/rdfs:label = '1980'"/>
+    <x:expect label="$5 becomes a bflc:applicableInstitution of the Hub" test="//bf:Hub[@rdf:about='http://example.org/2#Hub730-6']/bflc:applicableInstitution/bf:Agent/bf:code = 'DLC'"/>
+  </x:scenario>
+  
+  <x:scenario label="Relationships processed correctly">
+    <x:context href="data/ConvSpec-240andX30-UnifTitle/marc.xml"/>
+    <!-- tests for 630 located in ConvSpec-600-662.xspec -->
+    <!-- tests for 830 located in ConvSpec-Process6-Series.xspec -->
+    <x:expect label="730 with $i='is translation of' converts to bf:translationOf relationship and links to Hub." test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[5]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/translationof'"/>
+    <x:expect label="730 with $i='is translation of' converts to bf:translationOf relationship and links to Hub." test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[5]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Etrusques et lEurope'"/>
+    <x:expect label="730 with $i='is arrangement of' converts to bf:arrangementOf relationship and links to Hub." test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[4]/bf:Relation/bf:relationship/@rdf:resource='http://id.loc.gov/vocabulary/relationship/arrangementof'"/>
+    <x:expect label="730 with $i='is arrangement of' converts to bf:arrangementOf relationship and links to Hub." test="//bf:Work[@rdf:about='http://example.org/2#Work']/bf:relation[4]/bf:Relation/bf:associatedResource/bf:Hub/bf:title/bf:Title/bf:mainTitle = 'Partita, clarinets (2), bassoon, E♭ major'"/>
+  </x:scenario>
+
+</x:description>

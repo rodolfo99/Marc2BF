@@ -1,0 +1,7 @@
+services:
+  marc2bf:
+    build: .
+    network_mode: none
+    volumes:
+      - .:/data
+    command: ["examples/catalogo-ejemplo.mrc", "salida/compose.rdf", "--validate"]

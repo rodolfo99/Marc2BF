@@ -1,0 +1,6 @@
+/target/
+/salida/
+/.idea/
+*.iml
+__pycache__/
+/.venv/

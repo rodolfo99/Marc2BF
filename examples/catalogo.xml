@@ -1,0 +1,19 @@
+<record xmlns="http://www.loc.gov/MARC21/slim" type="Bibliographic">
+  <leader>00000nam a2200000 i 4500</leader>
+  <controlfield tag="001">ucol-1</controlfield>
+  <controlfield tag="008">260909s2026    mx            000 0 spa d</controlfield>
+  <datafield tag="020" ind1=" " ind2=" "><subfield code="a">9786070000001</subfield></datafield>
+  <datafield tag="050" ind1=" " ind2="4"><subfield code="a">QA76.9</subfield><subfield code="b">.V35 2026</subfield></datafield>
+  <datafield tag="100" ind1="1" ind2=" "><subfield code="a">Valencia, Rodolfo</subfield><subfield code="e">autor</subfield><subfield code="4">aut</subfield></datafield>
+  <datafield tag="245" ind1="1" ind2="0"><subfield code="a">Inteligencia artificial en bibliotecas :</subfield><subfield code="b">catálogos enlazados /</subfield><subfield code="c">Rodolfo Valencia.</subfield><subfield code="6">880-01</subfield></datafield>
+  <datafield tag="264" ind1=" " ind2="1"><subfield code="a">Colima :</subfield><subfield code="b">Universidad de Colima,</subfield><subfield code="c">2026.</subfield></datafield>
+  <datafield tag="264" ind1=" " ind2="4"><subfield code="c">©2026</subfield></datafield>
+  <datafield tag="300" ind1=" " ind2=" "><subfield code="a">120 páginas ;</subfield><subfield code="c">24 cm</subfield></datafield>
+  <datafield tag="336" ind1=" " ind2=" "><subfield code="a">texto</subfield><subfield code="b">txt</subfield><subfield code="2">rdacontent</subfield></datafield>
+  <datafield tag="337" ind1=" " ind2=" "><subfield code="a">sin mediación</subfield><subfield code="b">n</subfield><subfield code="2">rdamedia</subfield></datafield>
+  <datafield tag="338" ind1=" " ind2=" "><subfield code="a">volumen</subfield><subfield code="b">nc</subfield><subfield code="2">rdacarrier</subfield></datafield>
+  <datafield tag="650" ind1=" " ind2="0"><subfield code="a">Libraries</subfield><subfield code="x">Automation</subfield></datafield>
+  <datafield tag="655" ind1=" " ind2="7"><subfield code="a">Manuales</subfield><subfield code="2">local</subfield></datafield>
+  <datafield tag="880" ind1="1" ind2="0"><subfield code="6">245-01/(N</subfield><subfield code="a">図書館</subfield></datafield>
+  <datafield tag="999" ind1="1" ind2="2"><subfield code="a">local uno</subfield><subfield code="a">local dos</subfield><subfield code="9">dato adicional</subfield></datafield>
+</record>

@@ -1,0 +1,52 @@
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record>
+    <controlfield tag="001">1</controlfield>
+    <datafield tag="245" ind1="0" ind2="0">
+      <subfield code="a">Family circle.</subfield>
+    </datafield>
+    <datafield tag="247" ind1="1" ind2="0">
+      <subfield code="a">Everywoman's magazine</subfield>
+      <subfield code="f">v. 1-24, Jan. 1948-57.</subfield>
+    </datafield>
+    <datafield tag="247" ind1="0" ind2="0">
+      <subfield code="a">Distribution of the principal kinds of soil :</subfield>
+      <subfield code="b">orders, suborders, and great groups : National Soil Survey Classification of 1967.</subfield>
+    </datafield>
+    <datafield tag="247" ind1="0" ind2="0">
+      <subfield code="a">Archives for meteorology, geophysics, and bioclimatology.</subfield>
+      <subfield code="n">Serie A,</subfield>
+      <subfield code="p">Meteorology and geophysics</subfield>
+      <subfield code="g">(varies slightly)</subfield>
+      <subfield code="x">1234-5678</subfield>
+    </datafield>
+  </record>
+  <record>
+    <controlfield tag="001">2</controlfield>
+    <controlfield tag="008">750711u1961uuuuch ar    s   s0   e1chi  </controlfield>
+    <datafield tag="247" ind1="1" ind2="1">
+      <subfield code="6">880-03</subfield>
+      <subfield code="a">Taiwan Sheng ren kou tong ji.</subfield>
+      <subfield code="f">1961-</subfield>
+    </datafield>
+    <datafield tag="880" ind1="1" ind2="1">
+      <subfield code="6">247-03/$1</subfield>
+      <subfield code="a">臺灣省人口統計.</subfield>
+      <subfield code="f">1961-</subfield>
+    </datafield>
+  </record>
+  <record>
+    <controlfield tag="001">3</controlfield>
+    <controlfield tag="008">741112c19uu9999cau x         0   a1eng  </controlfield>
+    <datafield ind1="0" ind2="1" tag="247">
+      <subfield code="a">Junior musician</subfield>
+      <subfield code="f">&lt;May 1935-Nov. 1937?, June 1939?-Oct. 1940?&gt;</subfield>
+    </datafield>
+    <datafield ind1="0" ind2="1" tag="247">
+      <subfield code="a">Junior musician magazine</subfield>
+      <subfield code="f">Dec. 1937-May 1939, Nov. 1940-Sept. 1941</subfield>
+    </datafield>
+    <datafield ind1=" " ind2=" " tag="547">
+      <subfield code="a">Junior musician (Dec. 1937-May 1939, Nov. 1940-Sept. 1941, The Junior musician magazine).</subfield>
+    </datafield>
+  </record>
+</collection>
