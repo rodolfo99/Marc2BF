@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use Marc2BF in research, teaching, library workflows, or software projects, please cite this repository."
+title: "Marc2BF: MARC21 to BIBFRAME converter in Java"
+type: software
+authors:
+  - family-names: "Valencia Rodríguez"
+    given-names: "Rodolfo"
+repository-code: "https://github.com/rodolfo99/Marc2BF"
+url: "https://github.com/rodolfo99/Marc2BF"
+license: MIT
+keywords:
+  - MARC21
+  - BIBFRAME
+  - RDF
+  - linked data
+  - semantic web
+  - libraries
+  - Java
+  - Library of Congress
